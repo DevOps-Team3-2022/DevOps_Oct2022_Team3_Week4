@@ -25,12 +25,12 @@ jobs:
      run: |
        pytest test.py -v -cov
        
-- if: ${{ failure() }}
-      uses: nashmaniac/create-issue-action@v1.1
-      name: Create Issue Action
-      with:
-        title: Build Failed
-        token: ${{secrets.GITHUB_TOKEN}}
-        assignees: ${{github.actor}}
-        labels: worflow-failed
-        body: Workflow failed for commit ${{github.sha}}
+  - if: ${{ failure() }}
+     uses: nashmaniac/create-issue-action@v1.1
+     name: Create Issue Action
+     with:
+       title: Build Failed
+       token: ${{secrets.GITHUB_TOKEN}}
+       assignees: ${{github.actor}}
+       labels: worflow-failed
+       body: Workflow failed for commit ${{github.sha}}
