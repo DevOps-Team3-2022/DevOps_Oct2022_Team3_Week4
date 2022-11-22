@@ -26,11 +26,8 @@ jobs:
        pytest test.py -v -cov
 
    - if: ${{ failure() }}
-     uses: nashmaniac/create-issue-action@v1.1
-     name: Create Issue Action
+     uses: JasonEtco/create-an-issue@v2
+     env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      with:
-        title: Build Failed
-        token: ${{secrets.GITHUB_TOKEN}}
-        assignees: ${{github.actor}}
-        labels: worflow-failed
-        body: Workflow failed for commit ${{github.sha}}
+       filename: .github/ISSUE_TEMPLATE.md
