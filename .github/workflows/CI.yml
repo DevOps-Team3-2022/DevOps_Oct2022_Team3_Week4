@@ -38,6 +38,18 @@ jobs:
      if: always()
      with:
         junit_files: "report.xml"
+        
+   - name: create folder
+     run: mkdir downloads
+      
+   - name: Upload document
+     run: mv *.xml ./downloads
+      
+   - name: Upload document
+     uses: actions/upload-artifact@v2
+     with:
+      name: assetDocuments
+      path: downloads
     
  
   
