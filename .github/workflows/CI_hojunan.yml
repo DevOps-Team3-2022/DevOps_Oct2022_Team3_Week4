@@ -1,0 +1,26 @@
+name: Week4 CI Steps
+
+on:
+  push:
+    branches: [main]
+    
+jobs:
+  build:
+   runs-on: ubuntu-latest
+   steps:
+   - uses: actions/setup-python@v2
+     with:
+       python-version: 3.11.1
+   - name: Install Libraries
+     run: |
+       pip install flake8 pytest pytest-cov
+   - name: Checkout Own Repo
+     uses: actions/checkout@v2
+     with:
+       repository: DevOps-Team3-2022/DevOps_Oct2022_Team3_Week4
+   - name: list our contents
+     run: |
+       ls
+   - name: run helloworld
+     run: |
+       run helloworld.py
