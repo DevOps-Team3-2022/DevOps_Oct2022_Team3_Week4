@@ -23,4 +23,4 @@ jobs:
        ls
    - name: run helloworld
      run: |
-       run helloworld.py
+       python helloworld.py
